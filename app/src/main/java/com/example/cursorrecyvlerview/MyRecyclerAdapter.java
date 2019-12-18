@@ -38,10 +38,7 @@ public class MyRecyclerAdapter extends CursorRecyclerAdapterAbs {
         ((SimpleViewHolder) holder).bind(theImage);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-    }
 
     private void findColumns(Cursor c, String[] from)
     {

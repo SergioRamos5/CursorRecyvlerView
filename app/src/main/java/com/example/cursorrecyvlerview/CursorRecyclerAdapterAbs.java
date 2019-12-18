@@ -18,7 +18,7 @@ public abstract class CursorRecyclerAdapterAbs extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (mCursor == null)
         {
-            throw  new IllegalStateException("ERRO, cursor vacio");
+            throw  new IllegalStateException("ERROR, cursor vacio");
         }
 
         if (!mCursor.moveToPosition(position))

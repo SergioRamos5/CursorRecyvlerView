@@ -2,6 +2,7 @@ package com.example.cursorrecyvlerview;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentValues;
@@ -11,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ohCategoria = new OHCategoria(this, "BBDCategoria", null, 1);
 
-        insertarDatosCodigo();
+        //insertarDatosCodigo();
 
         sqLiteDatabase = ohCategoria.getReadableDatabase();
         if (sqLiteDatabase != null)
@@ -38,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
             Cursor cur = sqLiteDatabase.rawQuery("select idcategoria as _id, nombre, cate, imagen from categoria",null);
             MyRecyclerAdapter mAdapter = new MyRecyclerAdapter(R.layout.layout_recycler, cur, from, to);
             desplegable.setAdapter(mAdapter);
-            desplegable.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+            desplegable.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         }
+
+
     }
 
     static public Bitmap convertirStringBitmap(String imagen)
